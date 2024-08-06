@@ -40,7 +40,7 @@
             </label>
         </div>
 
-        <div class="flex justify-between items-center justify-end mt-4 p-2">
+        <div class="flex justify-between items-center mt-4 p-2">
 
             <x-form-link href="{{ route('register') }}">
                 {{ __('Register') }}
