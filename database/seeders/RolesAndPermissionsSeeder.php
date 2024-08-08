@@ -20,8 +20,8 @@ class RolesAndPermissionsSeeder extends Seeder
         $userRol = Role::firstOrCreate(["name" => "user"]);
 
         // Create A Permission to Admin
-        $productPermission = Permission::create(["name" => "manage products"]);
-        $seeProductsPermission = Permission::create(["name" => "see products"]);
+        $productPermission = Permission::firstOrCreate(["name" => "manage products"]);
+        $seeProductsPermission = Permission::firstOrCreate(["name" => "see products"]);
 
         // Assign Permission To a Role
         $adminRole->givePermissionTo($productPermission);
@@ -35,6 +35,15 @@ class RolesAndPermissionsSeeder extends Seeder
         {
             $adminUser->assignRole($adminRole);
         }   // Here End If
+        else
+        {
+            $users = User::where('name', '!=', 'admin')->get();
+
+            foreach( $users as $user)
+            {
+                $user->assignRole($userRol);
+            }   // Here End Foreach
+        }   // Here End Else
 
     }   // Here End Function Run
 }   // Here End Class RolesAndPermissionsSeeder
