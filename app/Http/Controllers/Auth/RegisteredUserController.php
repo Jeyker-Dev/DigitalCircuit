@@ -6,23 +6,29 @@ use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
-use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Auth\Events\Registered;
-use Spatie\Permission\Models\Permission;
+use App\Services\RolePermissionService;
 
 class RegisteredUserController extends Controller
 {
+    protected $rolePermissionService;
+
+    public function __construct(RolePermissionService $rolePermissionService)
+    {
+        $this->rolePermissionService = $rolePermissionService;
+    }   // Here End Function Construct
+
     /**
      * Display the registration view.
      */
     public function create(): View
     {
         return view('auth.register');
-    }
+    }   // Here End Function Create
 
     /**
      * Handle an incoming registration request.
@@ -43,41 +49,13 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-
         event(new Registered($user));
 
         Auth::login($user);
 
-        // Create Roles
-        $adminRole = Role::firstOrCreate([ "name" => "admin"]);
-        $userRole = Role::firstOrCreate(["name" => "user"]);
-
-        // Create Permissions
-        $adminPermissions = Permission::firstOrCreate(["name" => "manage products"]);
-        $userPermissions = Permission::firstOrCreate(["name" => "see products"]);
-
-        // Give Permission To a Role
-        $adminRole->givePermissionTo($adminPermissions);
-        $userRole->givePermissionTo($userPermissions);
-
-        // Create Admin User
-        $adminUser = User::where("name", "admin")->first();
-
-        // Create Users
-        $users = User::where('name', '!=', 'admin')->get();
-
-        if( $adminUser )
-        {
-            $adminUser->assignRole($adminRole);
-        }   // Here End If
-        if( $users )
-        {
-            foreach( $users as $user)
-            {
-                $user->assignRole($userRole);
-            }   // Here End Foreach
-        }   // Here End If
+        // Call the service to create roles and permissions
+        $this->rolePermissionService->createRolesPermissions();
 
         return redirect(route('verification.notice', absolute: false));
-    }
-}
+    }   // Here End Function Store
+}   // Here End Class
