@@ -37,6 +37,12 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // Validate the User With the Name Admin Exist
+        if( $request->name === "admin" && User::where("name", "admin")->exists() )
+        {
+            return back()->withErrors(["name" => "No se Puede Usar el Nombre de Admin. Por Favor Usa otro Nombre."]);
+        }   // Here End If
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
