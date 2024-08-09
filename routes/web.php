@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified', "isAdmin"])->name('dashboard');
+})->middleware(['auth', 'verified', "is.admin"])->name('dashboard');
 
 // Routes Access Denied Controller
 Route::get('/access-denied', AccessDeniedController::class)->name('access.denied');
