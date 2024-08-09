@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccessDeniedController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,9 @@ Route::get('/dashboard', function () {
 
 // Routes Access Denied Controller
 Route::get('/access-denied', AccessDeniedController::class)->name('access.denied');
+
+// Routes HomeController
+Route::get("/home", [HomeController::class, "index"])->name("home");
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
