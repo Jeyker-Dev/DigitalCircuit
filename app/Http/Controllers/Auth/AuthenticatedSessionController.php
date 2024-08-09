@@ -17,19 +17,29 @@ class AuthenticatedSessionController extends Controller
     public function create(): View
     {
         return view('auth.login');
-    }
+    }   // Here End Function Create
 
     /**
      * Handle an incoming authentication request.
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
-    }
+        $user = Auth::user();
+
+        if( $user->hasRole("admin") )
+        {
+            return redirect()->intended(route('dashboard', absolute: false));
+        }   // Here End If
+        if( $user->hasRole("user") )
+        {
+            return redirect()->intended(route('home', absolute: false));
+        }   // Here End If
+    }   // Here End Function Store
 
     /**
      * Destroy an authenticated session.
@@ -43,5 +53,5 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
-    }
-}
+    }   // Here End Function Destroy
+}   // Here End Class

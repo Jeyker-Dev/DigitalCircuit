@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
         // Validate the User With the Name Admin Exist
         if( $request->name === "admin" && User::where("name", "admin")->exists() )
         {
-            return back()->withErrors(["name" => "No se Puede Usar el Nombre de Admin. Por Favor Usa otro Nombre."]);
+            return back()->withErrors(["name" => "The Admin Name Cannot Be Used.Please Use Another Name."]);
         }   // Here End If
 
         $request->validate([
