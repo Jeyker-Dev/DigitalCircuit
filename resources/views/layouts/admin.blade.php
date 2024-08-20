@@ -18,15 +18,27 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-sky-100 dark:bg-sky-980">
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+        <div class="min-h-screen bg-sky-100 dark:bg-sky-980 flex">
+            <!-- Sidebar -->
+            <x-side-bar />
+
+            <div class="flex-1 flex flex-col">
+                <!-- Navigation Bar -->
+                <header class="w-full overflow-x-hidden">
+                    <x-nav-bar-admin />
+                </header>
+
+                <!-- Main Content -->
+                <main class="flex-1 p-6">
+                    {{ $slot }}
+                </main>
+            </div>
         </div>
 
         <!-- LiveWire -->
         @livewireScripts
         @stack('scripts')
+        <!-- Incluye Alpine.js en tu archivo de layout principal -->
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
     </body>
 </html>

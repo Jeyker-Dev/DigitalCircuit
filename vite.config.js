@@ -11,4 +11,9 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        host: 'localhost', // Especifica el host
+        port: 5174,        // Especifica el puerto
+        strictPort: true,  // No cambiará el puerto si está en uso
+    },
 });
