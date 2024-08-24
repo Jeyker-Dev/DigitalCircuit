@@ -15,6 +15,7 @@ class Products extends Model
         "price",
         "categories_id",
         "brands_id",
-        "stock"
+        "stock",
+        "image"
     ];
 }   // Here End Class

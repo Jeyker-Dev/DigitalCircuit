@@ -1,4 +1,4 @@
-<aside class="w-72 bg-sky-900 h-screen overflow-y-hidden">
+<aside class="w-72 bg-sky-900 h-full fixed top-0 left-0 overflow-y-auto">
     <x-application-logo svgClass="text-gray-200" divClass="mt-2 p-2 mb-7" h1Class="md:text-xl lg:text-xl text-gray-200" />
 
     <x-text-side-bar>
@@ -7,7 +7,7 @@
 
     <div class="w-10/12 mx-auto my-5 flex flex-col items-center gap-y-2">
         <!-- Button Dashboard -->
-        <x-button-side-bar buttonClass="flex justify-start items-center" href="#">
+        <x-button-side-bar buttonClass="flex justify-start items-center" href="{{route('dashboard')}}">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-layout-dashboard mx-2">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M9 3a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-4a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2zm0 12a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-4a2 2 0 0 1 -2 -2v-2a2 2 0 0 1 2 -2zm10 -4a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-4a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2zm0 -8a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-4a2 2 0 0 1 -2 -2v-2a2 2 0 0 1 2 -2z" />
@@ -30,7 +30,7 @@
         </x-button-side-bar>
 
         <!-- Button Tables -->
-        <x-button-side-bar buttonClass="flex justify-start items-center" href="#">
+        <x-button-side-bar buttonClass="flex justify-start items-center" href="{{route('table.products')}}">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-align-box-bottom-right mx-2">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />

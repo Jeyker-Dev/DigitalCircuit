@@ -1,5 +1,5 @@
 <x-admin-layout>
-    <x-subtitle :value="__('Manage Products')"/>
+    <x-subtitle :value="__('Create Products')"/>
 
     <livewire:create-product />
 </x-admin-layout>

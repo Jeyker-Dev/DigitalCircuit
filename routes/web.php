@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TableProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,6 +27,9 @@ Route::get("/dashboard", [AdminController::class, "index"])->middleware(['auth',
 
 // Routes Products Controller
 Route::get("/dashboard/products", [ProductsController::class, "render"])->middleware(["auth", "verified", "is.admin"])->name("products.create");
+
+// Routes Table Products Controller
+Route::get("/dashboard/tables/products", TableProductController::class)->middleware(["auth", "verified", "is.admin"])->name("table.products");
 
 
 // Routes Profile Controller
