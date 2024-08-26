@@ -12,8 +12,8 @@
                 '<img class="mask mask-squircle h-16 w-16 mx-auto" src="' . asset('uploads/' . $product->image) . '" alt="Imagen ' . $product->name . '" />',
                 $product->name,
                 '$' . $product->price,
-                $product->categories_id,
-                $product->brands_id,
+                $product->categories->name,
+                $product->brands->name,
                 $product->stock,
                 '<div class="flex items-center justify-center">
                     <a class="btn btn-ghost btn-xs bg-green-500 rounded mr-4 w-16" href="">edit</a>
