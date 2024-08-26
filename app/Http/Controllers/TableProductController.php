@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class TableProductController extends Controller
@@ -11,6 +12,10 @@ class TableProductController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view("admin.tables.products");
+        $products = Products::all();
+        return view("admin.tables.products", 
+        [
+            "products" => $products
+        ]);
     }   // Here End Function
 }
