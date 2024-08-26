@@ -13,7 +13,7 @@ class TableProductController extends Controller
     public function __invoke(Request $request)
     {
         $products = Products::all();
-        return view("admin.tables.products", 
+        return view("admin.tables.manage-products", 
         [
             "products" => $products
         ]);
