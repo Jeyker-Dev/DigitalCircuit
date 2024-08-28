@@ -1,6 +1,5 @@
 <div>
     <x-form-admin wire:submit.prevent='update' method="POST">
-        @method("PATCH")
 
         <!-- Name Field -->
         <div>
@@ -92,7 +91,7 @@
         <!-- Image Field -->
         <div>
             <x-input-label for="image" :value="__('Image of Product')" class="ml-14 py-2" />
-            <x-file-input id="image" class="block mt-1 w-10/12 mx-auto py-2" type="file" accept="image/*" wire:model="image" required />
+            <x-file-input id="image" class="block mt-1 w-10/12 mx-auto py-2" type="file" accept="image/*" wire:model="image_new" required />
         </div>
 
         @error("image")
@@ -101,14 +100,20 @@
             </div>
         @enderror
 
-        <!-- Image Preview -->
-        @if ($image)
-            <div class="mx-auto w-10/12 h-52 my-6">
-                <span class="text-lg font-bold font-open-sans text-gray-800 dark:text-gray-200"> Imagen: </span>
-                <img src="{{ $image->temporaryUrl() }}" alt="Imagen Seleccionada" class="w-full h-full object-cover">
-            </div>
+        <!-- Image Preview Actual -->
+        <div class="mx-auto w-10/12 h-52 my-6">
+            <span class="text-lg font-bold font-open-sans text-gray-800 dark:text-gray-200"> Current Image: </span>
+            <img src="{{ asset("uploads/" . $product->image) }}" alt="Imagen Seleccionada" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Image Preview New -->
+        @if ($image_new)
+        <div class="mx-auto w-10/12 h-52 my-6">
+            <span class="text-lg font-bold font-open-sans text-gray-800 dark:text-gray-200"> New Image: </span>
+            <img src="{{ $image_new->temporaryUrl() }}" alt="Imagen Seleccionada" class="w-full h-full object-cover">
+        </div>
         @endif
 
-        <x-input-form class="mt-8 block w-10/12 mx-auto text-center" value="{{ __('Create Product') }}" />
+        <x-input-form class="mt-8 block w-10/12 mx-auto text-center" value="{{ __('Save Changes') }}" />
     </x-form-admin>
 </div>
