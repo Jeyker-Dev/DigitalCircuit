@@ -13,9 +13,11 @@ class TableProductController extends Controller
     public function __invoke(Request $request)
     {
         $products = Products::all();
+        $product = Products::find($request->id);
         return view("admin.tables.manage-products", 
         [
-            "products" => $products
+            "products" => $products,
+            "product" => $product
         ]);
     }   // Here End Function
 }
