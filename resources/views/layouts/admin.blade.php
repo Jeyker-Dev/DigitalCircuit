@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="min-h-screen bg-sky-100 dark:bg-sky-980 flex">
+<div class="bg-sky-100 dark:bg-sky-980 flex">
     <!-- Sidebar -->
     <x-side-bar class="fixed top-0 left-0 h-full" />
 

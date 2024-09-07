@@ -5,10 +5,18 @@ import myPreset from './mypreset';
 
 /** @type {import('tailwindcss').Config} */
 export default merge(myPreset, {
+
+    presets: [
+        require('./vendor/tallstackui/tallstackui/tailwind.config.js')
+    ],
+
+    darkMode: 'class', // o 'media'
+
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './vendor/tallstackui/tallstackui/src/**/*.php',
     ],
 
     theme: {

@@ -6,4 +6,5 @@
     @endif
 
     <livewire:manage-products :products="$products" />
+
 </x-admin-layout>

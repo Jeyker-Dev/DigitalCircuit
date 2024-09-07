@@ -8,6 +8,7 @@ use Livewire\Attributes\On;
 
 class ManageProducts extends Component
 {
+
     public $products;
 
     public function mount($products)
