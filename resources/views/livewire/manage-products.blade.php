@@ -35,7 +35,7 @@
                         <span class="font-bold font-open-sans text-2xl text-sky-400">$<span x-text="productPrice"></span></span>
                     </div>
                 </div>
-                <x-ts-button x-on:click="open = false">Close</x-ts-button>
+                <x-ts-button x-on:click="$dispatch('modal:my-modal-close')">Close</x-ts-button>
             </div>
         </x-ts-modal>
     </div>
