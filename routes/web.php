@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccessDeniedController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
@@ -29,6 +30,9 @@ Route::get("/dashboard", [AdminController::class, "index"])->middleware(['auth',
 Route::get("/dashboard/products/create", [ProductsController::class, "create"])->middleware(["auth", "verified", "is.admin"])->name("products.create");
 
 Route::get("/dashboard/products/{product}/edit", [ProductsController::class, "edit"])->middleware(["auth", "verified", "is.admin"])->name("products.edit");
+
+// Routes Categories Controller
+Route::get("/dashboard/products/categories/create", [CategoriesController::class, "create"])->middleware((["auth", "verified", "is.admin"]))->name("categories.create");
 
 // Routes Table Products Controller
 Route::get("/dashboard/tables/products", TableProductController::class)->middleware(["auth", "verified", "is.admin"])->name("table.products");
