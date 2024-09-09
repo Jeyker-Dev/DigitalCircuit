@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TableCategoriesController;
 use App\Http\Controllers\TableProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,9 @@ Route::get("/dashboard/products/categories/create", [CategoriesController::class
 
 // Routes Table Products Controller
 Route::get("/dashboard/tables/products", TableProductController::class)->middleware(["auth", "verified", "is.admin"])->name("table.products");
+
+// Routes Table Categories Controller
+Route::get("/dashboard/tables/categories", TableCategoriesController::class)->middleware(["auth", "verified", "is.admin"])->name("table.categories");
 
 
 // Routes Profile Controller

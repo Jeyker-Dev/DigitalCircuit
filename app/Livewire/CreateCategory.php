@@ -26,7 +26,7 @@ class CreateCategory extends Component
 
         session()->flash("message", "The Category Has Been Created");
 
-        return redirect()->to(route(""));
+        return redirect()->to(route('table.categories'));
     }   // Here End Function
 
     public function messages()
