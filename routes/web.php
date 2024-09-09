@@ -35,11 +35,14 @@ Route::get("/dashboard/products/{product}/edit", [ProductsController::class, "ed
 // Routes Categories Controller
 Route::get("/dashboard/products/categories/create", [CategoriesController::class, "create"])->middleware((["auth", "verified", "is.admin"]))->name("categories.create");
 
+Route::get("/dashboard/tables/categories/{category}/edit", [CategoriesController::class, "edit"])->middleware(["auth", "verified", "is.admin"])->name("categories.edit");
+
 // Routes Table Products Controller
 Route::get("/dashboard/tables/products", TableProductController::class)->middleware(["auth", "verified", "is.admin"])->name("table.products");
 
 // Routes Table Categories Controller
 Route::get("/dashboard/tables/categories", TableCategoriesController::class)->middleware(["auth", "verified", "is.admin"])->name("table.categories");
+
 
 
 // Routes Profile Controller
