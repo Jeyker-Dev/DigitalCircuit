@@ -19,13 +19,13 @@ class CreateBrand extends Component
             "name" => "required|min:3"
         ]);
 
-        Brand::created([
+        Brand::create([
             "name" => $validated["name"]
         ]);
 
         session()->flash("message", "The Brand Has Been Created");
 
-        return redirect()->to(route(''));
+        return redirect()->to(route('table.brands'));
     }   // Here End Function
 
     public function messages()
