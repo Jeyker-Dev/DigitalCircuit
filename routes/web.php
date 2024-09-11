@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccessDeniedController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
@@ -36,6 +37,9 @@ Route::get("/dashboard/products/{product}/edit", [ProductsController::class, "ed
 Route::get("/dashboard/products/categories/create", [CategoriesController::class, "create"])->middleware((["auth", "verified", "is.admin"]))->name("categories.create");
 
 Route::get("/dashboard/tables/categories/{category}/edit", [CategoriesController::class, "edit"])->middleware(["auth", "verified", "is.admin"])->name("categories.edit");
+
+// Routes Brands Controller
+Route::get("/dashboard/products/brands/create", [BrandsController::class, "create"])->middleware(["auth", "verified", "is.admin"])->name("brands.create");
 
 // Routes Table Products Controller
 Route::get("/dashboard/tables/products", TableProductController::class)->middleware(["auth", "verified", "is.admin"])->name("table.products");
