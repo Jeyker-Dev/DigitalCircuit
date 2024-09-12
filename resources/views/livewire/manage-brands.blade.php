@@ -30,7 +30,7 @@
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    @this.call('deleteCategory', {brand: brandId});
+                    @this.call('deleteBrand', {brand: brandId});
                     Swal.fire(
                         'Deleted!',
                         'The Brand has been deleted.',
