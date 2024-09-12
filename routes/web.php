@@ -42,6 +42,8 @@ Route::get("/dashboard/tables/categories/{category}/edit", [CategoriesController
 // Routes Brands Controller
 Route::get("/dashboard/products/brands/create", [BrandsController::class, "create"])->middleware(["auth", "verified", "is.admin"])->name("brands.create");
 
+Route::get("/dashboard/products/brands/{brand}/edit", [BrandsController::class, "edit"])->middleware(["auth", "verified", "is.admin"])->name("brands.edit");
+
 // Routes Table Products Controller
 Route::get("/dashboard/tables/products", TableProductController::class)->middleware(["auth", "verified", "is.admin"])->name("table.products");
 

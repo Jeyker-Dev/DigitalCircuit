@@ -6,7 +6,7 @@
             $brand->id,
             $brand->name,
             '<div class="flex items-center justify-center">
-            <a class="btn btn-ghost btn-xs bg-green-500 hover:bg-green-510 rounded mr-4 w-16 text-white" href="' . route("categories.edit", $brand->id) . '">edit</a>
+            <a class="btn btn-ghost btn-xs bg-green-500 hover:bg-green-510 rounded mr-4 w-16 text-white" href="' . route("brands.edit", $brand->id) . '">edit</a>
             <button class="btn btn-ghost btn-xs bg-red-500 hover:bg-red-510 rounded mr-4 w-16 text-white" wire:click="$dispatch(\'confirmDelete\', {brandId:' . $brand->id . '})">delete</button>
             </div>'
         ];
