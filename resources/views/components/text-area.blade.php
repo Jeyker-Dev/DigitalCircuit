@@ -1,0 +1,1 @@
+<textarea {{ $attributes->merge(['class' => 'textarea textarea-bordered h-24 w-10/12 block mt-1 pl-10 mx-auto border-gray-300 dark:border-sky-950 dark:bg-sky-960 dark:text-gray-100 focus:border-sky-500 dark:focus:border-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 rounded-md shadow-sm']) }} placeholder="Bio">{{ $slot }}</textarea>

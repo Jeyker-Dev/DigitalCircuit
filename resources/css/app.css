@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Average+Sans&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dropdown-profile 
+{
+    position: absolute;
+    top: 5rem;
+    right: 0;
+    z-index: 10;
+}
+
+.rotate-360 {
+    transition: transform 0.5s;
+    transform: rotate(360deg);
+}
+.rotate-0 {
+    transition: transform 0.5s;
+    transform: rotate(0deg);
+}
