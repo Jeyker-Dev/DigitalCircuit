@@ -16,7 +16,7 @@
 
         <div x-show="open" @click.away="open = false" class="dropdown-profile bg-base-100 rounded-box z-[1] shadow bg-white dark:bg-sky-900 border border-sky-600 w-52 h-52 mr-4 flex flex-col">
 
-            <a href="#" class="text-gray-800 dark:text-gray-200 hover:text-sky-400 dark:hover:text-sky-400 transition duration-500 ease-in-out w-8/12 p-2 ml-2 my-1">
+            <a href="{{route('myprofile.show')}}" class="text-gray-800 dark:text-gray-200 hover:text-sky-400 dark:hover:text-sky-400 transition duration-500 ease-in-out w-8/12 p-2 ml-2 my-1">
                     <div class="flex items-center">
                         <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-user w-6 h-6"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" /><path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" /></svg>
                         <span class="text-base font-open-sans font-medium ml-3">
