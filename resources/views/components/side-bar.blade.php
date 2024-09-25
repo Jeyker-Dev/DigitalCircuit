@@ -160,6 +160,10 @@
                 'w-56' => 'w-full'
                 ],
             ],
+
+            'floating' => [
+                'append' => 'bg-dark-700 border-dark-200 border-dark-600'
+            ],
         ]">
             <x-slot:action>
 
@@ -175,7 +179,19 @@
             </x-slot:action>
 
             <!-- Button DropDown Products -->
-            <x-ts-dropdown.items>
+            <x-ts-dropdown.items :personalize="[
+                'border' => [
+                    'replace' => [
+                        'border-t-gray-100' => 'border-t-dark-600'
+                    ],
+                ],
+
+                'item' => [
+                    'replace' => [
+                        'hover:bg-gray-100' => 'hover:bg-dark-600'
+                    ],
+                ],
+            ]">
                 <!-- Button Products -->
                 <x-button-side-bar buttonClass="flex justify-start items-center" href="{{route('products.create')}}">
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mx-2 icon icon-tabler icons-tabler-outline icon-tabler-script"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 20h-11a3 3 0 0 1 0 -6h11a3 3 0 0 0 0 6h1a3 3 0 0 0 3 -3v-11a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v8" /></svg>
@@ -184,7 +200,19 @@
             </x-ts-dropdown.items>
 
             <!-- Button DropDown Categories -->
-            <x-ts-dropdown.items separator>
+            <x-ts-dropdown.items separator :personalize="[
+                'border' => [
+                    'replace' => [
+                        'border-t-gray-100' => 'border-t-dark-600'
+                    ],
+                ],
+
+                'item' => [
+                    'replace' => [
+                        'hover:bg-gray-100' => 'hover:bg-dark-600'
+                    ],
+                ],
+            ]">
                 <x-button-side-bar buttonClass="flex justify-start items-center" href="{{route('categories.create')}}">
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mx-2 icon icon-tabler icons-tabler-outline icon-tabler-category"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4h6v6h-6z" /><path d="M14 4h6v6h-6z" /><path d="M4 14h6v6h-6z" /><path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /></svg>
                     Categories
@@ -192,7 +220,19 @@
             </x-ts-dropdown.items>
 
             <!-- Button DropDown Brands -->
-            <x-ts-dropdown.items separator>
+            <x-ts-dropdown.items separator :personalize="[
+                'border' => [
+                    'replace' => [
+                        'border-t-gray-100' => 'border-t-dark-600'
+                    ],
+                ],
+
+                'item' => [
+                    'replace' => [
+                        'hover:bg-gray-100' => 'hover:bg-dark-600'
+                    ],
+                ],
+            ]">
                 <x-button-side-bar buttonClass="flex justify-start items-center" href="{{route('brands.create')}}">
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mx-2 icon icon-tabler icons-tabler-outline icon-tabler-brand-metabrainz"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7v10l7 4v-18z" /><path d="M21 7v10l-7 4v-18z" /></svg>
                     Brands
