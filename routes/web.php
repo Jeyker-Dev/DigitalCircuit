@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccessDeniedController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\HomeController;
@@ -53,7 +54,8 @@ Route::get("/dashboard/tables/categories", TableCategoriesController::class)->mi
 // Routes Table Brands Controller
 Route::get("/dashboard/tables/brands", TableBrandsController::class)->middleware(["auth", "verified", "is.admin"])->name("table.brands");
 
-
+// Routes Admin Profile Controller
+Route::get("/dashboard/profile", [AdminProfileController::class, "render"])->middleware(["auth", "verified", "is.admin"])->name("myprofile.show");
 
 // Routes Profile Controller
 Route::middleware('auth')->group(function () {
